@@ -16,6 +16,16 @@ export default function Header({ theme, toggleTheme }) {
       const sections = ['hero', 'about', 'projects', 'experience', 'writing', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
+      // Check if we're near the bottom of the page
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const isNearBottom = window.scrollY + windowHeight >= documentHeight - 100;
+      
+      if (isNearBottom) {
+        setActiveSection('contact');
+        return;
+      }
+      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
