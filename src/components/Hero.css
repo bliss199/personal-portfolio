@@ -1,0 +1,235 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 50%, var(--accent-mint) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.title-dot {
+  color: var(--accent-mint);
+  -webkit-text-fill-color: var(--accent-mint);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-typing {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text-secondary);
+  margin: 1.5rem 0;
+  font-weight: 300;
+}
+
+.hero-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.tech-pill {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.tech-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.hero-intro {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.hero-interests {
+  font-size: 0.95rem;
+  color: var(--accent-blue);
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Preview Panel */
+.hero-preview {
+  perspective: 1000px;
+}
+
+.preview-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  min-height: 400px;
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+}
+
+.preview-item {
+  width: 100%;
+}
+
+.preview-visual {
+  width: 100%;
+  height: 250px;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-accent {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(40px);
+  opacity: 0.4;
+}
+
+.preview-info {
+  text-align: center;
+}
+
+.preview-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.preview-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.preview-indicators {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-color);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.preview-dot:hover {
+  background: var(--accent-blue);
+  transform: scale(1.2);
+}
+
+.preview-dot-active {
+  background: var(--accent-blue);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-blue), transparent);
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-preview {
+    display: none;
+  }
+
+  .hero {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+

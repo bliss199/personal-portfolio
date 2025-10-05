@@ -1,0 +1,19 @@
+.typing-text {
+  display: inline-flex;
+  align-items: center;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.5em;
+  background: linear-gradient(to top, #6366f1, #a855f7);
+  margin-left: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.typing-cursor.visible {
+  opacity: 1;
+}
+
