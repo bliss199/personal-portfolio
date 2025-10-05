@@ -26,7 +26,7 @@ A modern, clean, and performant personal portfolio website built with React. Fea
 
 ### Prerequisites
 
-- Node.js 18+ (you have v18.20.5)
+- Node.js 18+
 - npm
 
 ### Installation
@@ -45,7 +45,6 @@ npm run build
 npm run preview
 ```
 
-The site will be available at `http://localhost:5173`
 
 ## Project Structure
 
@@ -63,7 +62,7 @@ src/
 
 ### Adding Projects
 
-Edit `src/data/projects.js` to add or modify projects. Each project includes:
+`src/data/projects.js` is what i need to edit to add or modify projects. Each project includes:
 - Title, summary, and description
 - Tech stack tags
 - Links (code, demo, case study)
@@ -121,6 +120,7 @@ Modify the color scheme in `src/index.css` by updating the CSS variables:
 
 ## Browser Support
 
+Made sure it works well with
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
