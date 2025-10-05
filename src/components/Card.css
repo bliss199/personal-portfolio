@@ -1,0 +1,51 @@
+.card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  backdrop-filter: blur(16px);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.card-hover {
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.2), 0 0 0 1px rgba(168, 85, 247, 0.3);
+}
+
+.card-hover:hover::before {
+  opacity: 1;
+}
+
+.card-spotlight {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15), transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(30px);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
