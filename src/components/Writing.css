@@ -1,0 +1,84 @@
+.writing {
+  background: var(--bg-secondary);
+}
+
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.writing-card {
+  height: 100%;
+}
+
+.placeholder-card {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(52, 211, 153, 0.05));
+}
+
+.placeholder-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.placeholder-title {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.placeholder-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.writing-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.writing-date {
+  font-family: var(--font-mono);
+}
+
+.writing-read-time {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.writing-title {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.writing-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .writing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .placeholder-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
