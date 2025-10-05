@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiSun, FiMoon, FiMenu, FiX, FiGithub, FiMail } from 'react-icons/fi';
 import './Header.css';
 
@@ -7,6 +8,8 @@ export default function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,13 +46,28 @@ export default function Header({ theme, toggleTheme }) {
   }, []);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-      setMobileMenuOpen(false);
+    // If we're on a project page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.offsetTop - offset;
+          window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // We're on home page, scroll normally
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+      }
     }
+    setMobileMenuOpen(false);
   };
 
   const navLinks = [

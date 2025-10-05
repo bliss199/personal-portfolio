@@ -69,7 +69,7 @@ export default function Hero() {
             </motion.h1>
             
             <TypingText 
-              text="Computing Science & Engineering Student"
+              text="Computing Science Student"
               className="hero-typing"
             />
             
