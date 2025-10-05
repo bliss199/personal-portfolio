@@ -78,7 +78,7 @@ Edit `src/data/projects.js` to add or modify projects. Each project includes:
 
 ### Resume
 
-Add your resume PDF to the `public` folder as `Towhid_Murad_Resume.pdf`. The download button will automatically link to it.
+Adding my resume PDF to the `public` folder. The download button will automatically link to it.
 
 ### Colors
 
@@ -132,10 +132,10 @@ This project is open source and available under the MIT License.
 
 ## Contact
 
-Towhid Murad — [towhid@example.com](mailto:towhid@example.com)
+Towhid Murad — [tmfahim2123@gmail.com](mailto:tmfahim2123@gmail.com)
 
 GitHub: [@bliss199](https://github.com/bliss199)
 
 ---
 
-Built with care by Towhid Murad — v1.0
+Built with care by Towhid Murad 
