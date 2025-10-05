@@ -26,7 +26,7 @@ A modern, clean, and performant personal portfolio website built with React. Fea
 
 ### Prerequisites
 
-- Node.js 18+ (you have v18.20.5)
+- Node.js 18+
 - npm
 
 ### Installation
@@ -45,7 +45,6 @@ npm run build
 npm run preview
 ```
 
-The site will be available at `http://localhost:5173`
 
 ## Project Structure
 
@@ -63,7 +62,7 @@ src/
 
 ### Adding Projects
 
-Edit `src/data/projects.js` to add or modify projects. Each project includes:
+`src/data/projects.js` is what i need to edit to add or modify projects. Each project includes:
 - Title, summary, and description
 - Tech stack tags
 - Links (code, demo, case study)
@@ -78,7 +77,7 @@ Edit `src/data/projects.js` to add or modify projects. Each project includes:
 
 ### Resume
 
-Add your resume PDF to the `public` folder as `Towhid_Murad_Resume.pdf`. The download button will automatically link to it.
+Adding my resume PDF to the `public` folder. The download button will automatically link to it.
 
 ### Colors
 
@@ -121,6 +120,7 @@ Modify the color scheme in `src/index.css` by updating the CSS variables:
 
 ## Browser Support
 
+Made sure it works well with
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
@@ -132,10 +132,10 @@ This project is open source and available under the MIT License.
 
 ## Contact
 
-Towhid Murad — [towhid@example.com](mailto:towhid@example.com)
+Towhid Murad — [tmfahim2123@gmail.com](mailto:tmfahim2123@gmail.com)
 
 GitHub: [@bliss199](https://github.com/bliss199)
 
 ---
 
-Built with care by Towhid Murad — v1.0
+Built with care by Towhid Murad 
