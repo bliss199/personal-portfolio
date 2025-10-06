@@ -37,7 +37,7 @@ export default function Footer() {
               <FiGithub />
             </a>
             <a
-              href="mailto:towhid@example.com?subject=Hey Towhid"
+              href="mailto:tmfahim2123@gmail.com?subject=Hey Towhid"
               aria-label="Send email"
             >
               <FiMail />

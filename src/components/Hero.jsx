@@ -4,14 +4,15 @@ import Button from './Button';
 import TextReveal from './TextReveal';
 import { GlowBadge } from './Badge';
 import TypingText from './TypingText';
+import EyeSpyAnimation from './EyeSpyAnimation';
 import { FiDownload, FiArrowRight, FiZap } from 'react-icons/fi';
 import './Hero.css';
 
 const projectPreviews = [
   {
-    name: 'VisionCheck',
+    name: 'EyeSpy',
     color: '#60A5FA',
-    description: 'Mobile eye health screening'
+    description: 'Mobile vision acuity testing'
   },
   {
     name: 'RouteSaver',
@@ -27,13 +28,26 @@ const projectPreviews = [
 
 export default function Hero() {
   const [currentPreview, setCurrentPreview] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    if (isHovered) return; // Pause when hovered
+    
     const interval = setInterval(() => {
       setCurrentPreview((prev) => (prev + 1) % projectPreviews.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
+
+  const nextPreview = () => {
+    console.log('Next clicked');
+    setCurrentPreview((prev) => (prev + 1) % projectPreviews.length);
+  };
+
+  const prevPreview = () => {
+    console.log('Prev clicked');
+    setCurrentPreview((prev) => (prev - 1 + projectPreviews.length) % projectPreviews.length);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -114,6 +128,8 @@ export default function Hero() {
               className="preview-card"
               whileHover={{ rotateY: 5, rotateX: 5 }}
               transition={{ duration: 0.3 }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               {projectPreviews.map((project, index) => (
                 <motion.div
@@ -130,15 +146,21 @@ export default function Hero() {
                     inset: currentPreview === index ? 'auto' : 0
                   }}
                 >
-                  <div 
-                    className="preview-visual"
-                    style={{ background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)` }}
-                  >
+                  {project.name === 'EyeSpy' ? (
+                    <div className="preview-visual">
+                      <EyeSpyAnimation />
+                    </div>
+                  ) : (
                     <div 
-                      className="preview-accent"
-                      style={{ background: project.color }}
-                    />
-                  </div>
+                      className="preview-visual"
+                      style={{ background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)` }}
+                    >
+                      <div 
+                        className="preview-accent"
+                        style={{ background: project.color }}
+                      />
+                    </div>
+                  )}
                   <div className="preview-info">
                     <h3 className="preview-name">{project.name}</h3>
                     <p className="preview-desc">{project.description}</p>
@@ -146,6 +168,25 @@ export default function Hero() {
                 </motion.div>
               ))}
               
+              {/* Navigation Controls */}
+              <div className="preview-controls">
+                <button
+                  className="preview-nav-btn preview-nav-prev"
+                  onClick={prevPreview}
+                  aria-label="Previous project"
+                >
+                  ←
+                </button>
+                
+                <button
+                  className="preview-nav-btn preview-nav-next"
+                  onClick={nextPreview}
+                  aria-label="Next project"
+                >
+                  →
+                </button>
+              </div>
+
               {/* Preview Indicators */}
               <div className="preview-indicators">
                 {projectPreviews.map((_, index) => (

@@ -121,7 +121,7 @@ export default function Header({ theme, toggleTheme }) {
               <FiGithub />
             </a>
             <a
-              href="mailto:towhid@example.com?subject=Hey Towhid"
+              href="mailto:tmfahim2123@gmail.com?subject=Hey Towhid"
               className="icon-button"
               aria-label="Send email"
             >

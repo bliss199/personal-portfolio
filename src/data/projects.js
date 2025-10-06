@@ -1,37 +1,45 @@
 export const projects = [
   {
-    id: 'visioncheck',
-    title: 'VisionCheck',
-    summary: `A simple mobile proof of concept that uses the iPhone front camera to estimate reading distance and font legibility.`,
-    pitch: `Mobile eye health screening app that nudges people to book real eye exams if results are below threshold.`,
-    stack: ['Swift', 'Computer Vision', 'On-device ML'],
-    image: '/projects/visioncheck.png',
+    id: 'eyespy',
+    title: 'EyeSpy',
+    summary: `A mobile vision acuity testing application that uses Apple's TrueDepth camera and speech recognition to perform Snellen chart tests.`,
+    pitch: `Mobile eye health screening app that provides accurate at-home vision testing using depth mapping and hands-free interaction.`,
+    stack: ['React Native', 'TypeScript', 'Apple TrueDepth', 'Speech Recognition'],
+    image: 'animated', // Will use EyeSpyAnimation component
     links: {
-      code: 'https://github.com/bliss199',
+      code: 'https://github.com/bliss199/EyeSpy',
       demo: null,
-      caseStudy: '/projects/visioncheck'
+      caseStudy: '/projects/eyespy',
+      report: '/SFU_CMPT340_ProjectGroup_13.pdf'
     },
     color: '#60A5FA',
-    role: 'Solo Developer',
-    timeframe: 'Fall 2024 (3 weeks)',
-    problem: `Many people avoid eye exams until vision problems become severe. There's a need for accessible, preliminary screening tools that can encourage proactive eye health.`,
-    approach: `Built a mobile app using the iPhone front camera and simple computer vision heuristics to estimate reading distance and test font legibility. The app offers on-device visual acuity tests with clear instructions. Results are processed locally for privacy, and users receive actionable feedback about whether they should book a professional exam.`,
-    outcome: `Created a functional proof of concept that successfully demonstrates distance estimation and basic visual tests. User testing with 15 participants showed that 80% found the app intuitive and would use it as a first step before booking an exam.`,
+    role: 'Team Member (5-person group)',
+    timeframe: 'Fall 2024 (CMPT340)',
+    problem: `Vision impairment affects 2.2 billion people globally, with many lacking access to timely and affordable eye care. There's an urgent need for cost-effective solutions to help identify eyeglass prescriptions and enable early intervention for conditions like Myopia.`,
+    approach: `Developed a React Native app that leverages Apple's TrueDepth camera array to measure user distance in real-time, dynamically scaling Snellen chart optotypes based on depth data. Integrated speech recognition for hands-free interaction and implemented a custom variation of the Snellen chart adapted for high-DPI mobile displays. The app calculates visual acuity using arcminutes and real-time distance measurements.`,
+    outcome: `Successfully created a functional mobile vision testing application that accurately scales optotypes based on user distance. The app performs real-time depth calculations without delays and provides hands-free operation through speech recognition. While effective for mild myopia cases, we identified limitations with severe myopia due to screen size constraints and depth data processing delays.`,
     wins: [
-      'On-device processing ensures user privacy',
-      `Simple UI that doesn't overwhelm non-technical users`,
-      'Clear call-to-action based on test results'
+      'Real-time depth mapping with Apple TrueDepth camera',
+      'Hands-free operation using speech recognition APIs',
+      'Accurate scaling of Snellen chart for mobile format',
+      'Cross-platform development with React Native and Expo',
+      'Custom native module development for depth data access'
     ],
     lessons: [
-      'Camera calibration varies significantly between iPhone models',
-      'Lighting conditions affect accuracy more than expected',
-      'Users want more explanation about what each test measures'
+      'TrueDepth camera data requires custom React Native bridging',
+      'Screen size limitations affect accuracy for severe vision issues',
+      'Depth data processing can have delays during user movement',
+      'Speech recognition APIs vary significantly between platforms',
+      'Snellen chart adaptation for mobile requires careful mathematical scaling'
     ],
-    improvements: `If I had more time, I would add more robust lighting detection, implement camera calibration for different devices, and create an optional results history feature. I'd also explore integrating with HealthKit for a more comprehensive health tracking experience.`,
+    improvements: `Future improvements include redesigning for iPad screens to increase test accuracy, implementing Face Tracking to limit depth readings to facial regions, replacing Snellen chart with LogMAR chart for better precision, adding support for other acuity tests like "Tumbling E" chart for accessibility, and exploring Android compatibility for broader reach.`,
     gallery: [
-      { src: '/projects/visioncheck-1.png', caption: 'Main screen showing distance estimation' },
-      { src: '/projects/visioncheck-2.png', caption: 'Visual acuity test interface' },
-      { src: '/projects/visioncheck-3.png', caption: 'Results summary and recommendations' }
+      { src: '/projects/unnamed-1.png', caption: 'App starting page with clean interface' },
+      { src: '/projects/unnamed-2.png', caption: 'Test welcome page with instructions' },
+      { src: '/projects/unnamed-3.png', caption: 'Depth test comparison showing far distance' },
+      { src: '/projects/unnamed-4.png', caption: 'Depth test comparison showing near distance' },
+      { src: '/projects/unnamed-5.png', caption: 'Example of partially correct row (2/5 letters)' },
+      { src: '/projects/unnamed-6.png', caption: 'Test results showing left and right eye scores' }
     ]
   },
   {

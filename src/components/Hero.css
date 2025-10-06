@@ -155,11 +155,47 @@
   color: var(--text-secondary);
 }
 
+.preview-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.preview-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  pointer-events: auto;
+  z-index: 10;
+  position: relative;
+}
+
+.preview-nav-btn:hover {
+  background: var(--accent-blue);
+  color: var(--bg-primary);
+  border-color: var(--accent-blue);
+  transform: scale(1.1);
+}
+
+.preview-nav-btn:active {
+  transform: scale(0.95);
+}
+
 .preview-indicators {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  flex: 1;
 }
 
 .preview-dot {

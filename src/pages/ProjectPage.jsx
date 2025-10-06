@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiGithub, FiExternalLink, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import { FiArrowLeft, FiGithub, FiExternalLink, FiCheckCircle, FiAlertCircle, FiFileText } from 'react-icons/fi';
 import Button from '../components/Button';
 import { Badge } from '../components/Badge';
 import { projects } from '../data/projects';
@@ -106,6 +106,16 @@ export default function ProjectPage() {
                   Live Demo
                 </Button>
               )}
+              {project.links.report && (
+                <Button
+                  variant="secondary"
+                  href={project.links.report}
+                  target="_blank"
+                  icon={<FiFileText />}
+                >
+                  View Report (PDF)
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -153,10 +163,21 @@ export default function ProjectPage() {
                 <div className="project-gallery">
                   {project.gallery.map((image, index) => (
                     <div key={index} className="gallery-item">
+                      <img 
+                        src={image.src}
+                        alt={image.caption}
+                        className="gallery-image"
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
+                      />
                       <div 
                         className="gallery-placeholder"
                         style={{ 
-                          background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)` 
+                          background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)`,
+                          display: 'none'
                         }}
                       >
                         <span className="gallery-placeholder-text">

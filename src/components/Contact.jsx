@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('towhid@example.com');
+    navigator.clipboard.writeText('tmfahim2123@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -72,14 +72,14 @@ export default function Contact() {
                   <div className="contact-method-content">
                     <h3>Email</h3>
                     <button onClick={copyEmail} className="email-button">
-                      towhid@example.com
+                      tmfahim2123@gmail.com
                       {copied && <span className="copied-indicator">Copied!</span>}
                     </button>
                   </div>
                 </Card>
 
                 <a 
-                  href="mailto:towhid@example.com?subject=Hey Towhid"
+                  href="mailto:tmfahim2123@gmail.com?subject=Hey Towhid"
                   className="mailto-link"
                 >
                   Or open your email client →
@@ -178,7 +178,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                   >
                     Something went wrong. Please use the{' '}
-                    <a href="mailto:towhid@example.com?subject=Hey Towhid">
+                    <a href="mailto:tmfahim2123@gmail.com?subject=Hey Towhid">
                       email link
                     </a>{' '}
                     instead.

@@ -4,6 +4,7 @@ import { FiGithub, FiExternalLink, FiFileText } from 'react-icons/fi';
 import Card from './Card';
 import { Badge } from './Badge';
 import Button from './Button';
+import EyeSpyAnimation from './EyeSpyAnimation';
 import { projects } from '../data/projects';
 import { useScrollAnimation, fadeUp, scaleUp, staggerContainer } from '../hooks/useScrollAnimation';
 import './Projects.css';
@@ -42,18 +43,22 @@ export default function Projects() {
                   onClick={() => navigate(project.links.caseStudy)}
                 >
                   <div className="project-image-container">
-                    <div 
-                      className="project-image-placeholder"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${project.color}30, ${project.color}10)`
-                      }}
-                    >
+                    {project.image === 'animated' ? (
+                      <EyeSpyAnimation />
+                    ) : (
                       <div 
-                        className="project-accent"
-                        style={{ background: project.color }}
-                      />
-                      <span className="project-title-overlay">{project.title}</span>
-                    </div>
+                        className="project-image-placeholder"
+                        style={{ 
+                          background: `linear-gradient(135deg, ${project.color}30, ${project.color}10)`
+                        }}
+                      >
+                        <div 
+                          className="project-accent"
+                          style={{ background: project.color }}
+                        />
+                        <span className="project-title-overlay">{project.title}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="project-content">
@@ -95,6 +100,17 @@ export default function Projects() {
                           icon={<FiExternalLink />}
                         >
                           Demo Video Soon
+                        </Button>
+                      )}
+                      {project.links.report && (
+                        <Button
+                          variant="ghost"
+                          href={project.links.report}
+                          target="_blank"
+                          icon={<FiFileText />}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          View Report
                         </Button>
                       )}
                       <Button
